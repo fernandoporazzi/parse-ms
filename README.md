@@ -1,6 +1,9 @@
 # parse-ms
 Parse milliseconds into a struct
 
+![](https://github.com/fernandoporazzi/parse-ms/workflows/Go/badge.svg)
+
+
 ## Install
 
 ```
