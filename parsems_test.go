@@ -18,7 +18,7 @@ func TestParse(t *testing.T) {
 				Seconds:      0,
 				Milliseconds: 500,
 				Microseconds: 345,
-				Nanoseconds:  678,
+				Nanoseconds:  0,
 			},
 		},
 		{
