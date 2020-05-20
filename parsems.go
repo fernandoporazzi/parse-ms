@@ -4,13 +4,13 @@ import "math"
 
 // ParsedMilliseconds holds the parsed content
 type ParsedMilliseconds struct {
-	Days         int `json:"days"`
-	Hours        int `json:"hours"`
-	Minutes      int `json:"minutes"`
-	Seconds      int `json:"seconds"`
-	Milliseconds int `json:"milliseconds"`
-	Microseconds int `json:"microseconds"`
-	Nanoseconds  int `json:"nanoseconds"`
+	Days         float64 `json:"days"`
+	Hours        float64 `json:"hours"`
+	Minutes      float64 `json:"minutes"`
+	Seconds      float64 `json:"seconds"`
+	Milliseconds float64 `json:"milliseconds"`
+	Microseconds float64 `json:"microseconds"`
+	Nanoseconds  float64 `json:"nanoseconds"`
 }
 
 func roundTowardsZero(m float64) int {
@@ -24,13 +24,13 @@ func roundTowardsZero(m float64) int {
 // Parse takes a value in milliseconds and returns a struct with parsed data
 func Parse(m float64) ParsedMilliseconds {
 	ps := ParsedMilliseconds{
-		Days:         roundTowardsZero(m / 86400000),
-		Hours:        roundTowardsZero(m/3600000) % 24,
-		Minutes:      roundTowardsZero(m/60000) % 60,
-		Seconds:      roundTowardsZero(m/1000) % 60,
-		Milliseconds: roundTowardsZero(m) % 1000,
-		Microseconds: roundTowardsZero(m*1000) % 1000,
-		Nanoseconds:  roundTowardsZero(m*1000000) % 1000,
+		Days:         float64(roundTowardsZero(m / 86400000)),
+		Hours:        float64(roundTowardsZero(m/3600000) % 24),
+		Minutes:      float64(roundTowardsZero(m/60000) % 60),
+		Seconds:      float64(roundTowardsZero(m/1000) % 60),
+		Milliseconds: float64(roundTowardsZero(m) % 1000),
+		Microseconds: float64(roundTowardsZero(m*1000) % 1000),
+		Nanoseconds:  float64(roundTowardsZero(m*1000000) % 1000),
 	}
 
 	return ps
